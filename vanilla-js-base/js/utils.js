@@ -47,4 +47,18 @@ const sanitizeInput = (inputValue) => {
   return div.innerHTML;
 };
 
-export { delay, capitalize, log, select, event };
+//Class Manipulation ["+","-","x"]
+
+const classlist = (element, action, className) => {
+  const classes = typeof className === "string" ? [className] : [...className];
+
+  if (action === "remove" || action === "-") {
+    return element.classList.remove(...classes);
+  } else if (action === "add" || action === "+") {
+    return element.classList.add(...classes);
+  } else if (action === "toggle" || action === "x") {
+    return element.classList.toggle(...classes);
+  }
+};
+
+export { delay, capitalize, log, select, event, classlist };

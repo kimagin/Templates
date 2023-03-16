@@ -1,12 +1,19 @@
 "use strict";
-import { delay, log, select, event } from "./utils";
+//ToolBox
+import {
+  delay, // Asynchronus delay function : delay(time)
+  log, // shorthand console.log : log()
+  select, //Custom querrySelector : select(element, ?all[true:false])
+  event, // Custom event listener : event(element,event,callback)
+  classlist, // Class manipulator : classlist(element,action["+"(add),"-"(remove),"x"(toggle)],class(string or []))
+} from "./utils";
 
 // Setup before DOM loads
 const initApp = async () => {
   //Dom Elements
   const mainElement = select("section");
   await delay(500);
-  mainElement.classList.remove("opacity-0");
+  classlist(mainElement, "-", "opacity-0");
   //Event Listeners
 
   event(mainElement, "transitionend", () =>
