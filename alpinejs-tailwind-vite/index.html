@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="src/assets/js.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <link rel="preconnect" href="https://rsms.me/" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body>
+    <!-- Main app -->
+    <div
+      class="main flex flex-col justify-center items-center opacity-0"
+      x-data="data"
+    >
+      <div class="logo">
+        <img class="rounded-sm" src="src/assets/js.png" width="38" alt="" />
+        <img
+          class="animate-bounce"
+          src="src/assets/alpine.png"
+          width="58"
+          alt=""
+        />
+        <img src="src/assets/tailwind.png" width="50" alt="" />
+        <img src="src/assets/vite.svg" width="38" alt="" />
+      </div>
+      <span class="title mb-8" x-html="appInfo.title"></span>
+
+      <!-- component -->
+      <div x-data="counter">
+        <div class="h-10 mb-8">
+          <button
+            @click.prevent="increase()"
+            :class="'counter'"
+            x-text="`
+          ${name} / ${counter}`"
+          ></button>
+        </div>
+      </div>
+      <small><i>Prepared with ❤️ by</i> <b>Kimagination</b></small>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+/* Tailwind Directives : */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Styles */
+
+:root {
+  font-family: "Inter", sans-serif;
+  letter-spacing: 0.1rem;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(20, 17, 8);
+}
+
+h1 {
+  color: rgb(217, 216, 219);
+  font-size: 3rem;
+}
+
+b {
+  color: #ffe600;
+}
+main {
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+section {
+  text-align: center;
+  transition: opacity;
+  transition-duration: 1s;
+  transition-timing-function: ease-in;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.js-logo {
+  margin-right: 0.5rem;
+}
+
+.vite-logo {
+  margin-left: 0.5rem;
+}
+
+.heading {
+  margin-top: 1.25rem;
+  letter-spacing: 0.025rem;
+}
+
+.footnote {
+  /* @apply mt-2 text-slate-300 font-thin tracking-widest; */
+  color: rgb(253, 251, 255);
+  margin-top: 0.5rem;
+  font-weight: 100;
+}
