@@ -85,4 +85,36 @@ const classlist = (selector, action, ...classNames) => {
   actionFn()
 }
 
-export { delay, capitalize, log, select, event, classlist }
+// ⚾ Debounce
+// Will prevent running the function until the time has passed
+const debounce = (func, delay) => {
+  let timerId
+
+  return (...args) => {
+    if (timerId) {
+      clearTimeout(timerId)
+    }
+
+    timerId = setTimeout(() => {
+      func(...args)
+      timerId = null
+    }, delay)
+  }
+}
+
+// ⚙️ Throttle
+// Will run the function, once per specified delay
+const throttle = (func, limit) => {
+  let inThrottle
+  return function () {
+    const args = arguments
+    const context = this
+    if (!inThrottle) {
+      func.apply(context, args)
+      inThrottle = true
+      setTimeout(() => (inThrottle = false), limit)
+    }
+  }
+}
+
+export { delay, capitalize, log, select, event, classlist, debounce, throttle }
