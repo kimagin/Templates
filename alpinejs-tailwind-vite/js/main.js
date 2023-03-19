@@ -9,6 +9,7 @@ import {
   classlist, // Class manipulator : classlist(element,action["+"(add),"-"(remove),"x"(toggle)],class(string or [])),
   debounce, // Debounce ( runs the function only after the specified delay ) : debounce(function,delay)
   throttle, // Throttle ( runs the function n times per specified amount time ) : throttle(function,interval)
+  random, // Random number generator : random(min,max)
 } from './utils'
 
 //Imports

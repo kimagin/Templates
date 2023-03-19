@@ -1,13 +1,11 @@
 // JS Utilities
 
 // ⌛ Promise delay
-const delay = (time) => {
-  return new Promise((resolve, reject) => {
-    if (isNaN(time)) {
-      reject(new Error('delay requires a valid number in ms!'))
-    }
-    return setTimeout(resolve, time)
-  })
+const delay = async (timeInMs) => {
+  if (isNaN(timeInMs)) {
+    throw new Error('delay requires a valid number in ms!')
+  }
+  await new Promise((resolve) => setTimeout(resolve, timeInMs))
 }
 
 // 🗒️ Capitalize
@@ -21,17 +19,33 @@ const capitalize = (string) => {
 }
 
 // 📰 Log (instead of console.log())
-const log = (content) => {
-  console.log(content)
+
+const log = (content, label = '', level = 'info') => {
+  const timestamp = new Date().toLocaleTimeString()
+  const levels = {
+    debug: { method: console.debug, color: '#A9A9A9' },
+    info: { method: console.info, color: '#87CEFA' },
+    warn: { method: console.warn, color: '#FFD700' },
+    error: { method: console.error, color: '#FFA07A' },
+  }
+  const { method, color } = levels[level] || levels.info
+  const style = `color: ${color}; font-weight: bold; font-style: italic;`
+  const formattedLabel = label ? `%c[${label}]` : ''
+  method(`%c${timestamp} ${formattedLabel}:`, style, content)
 }
 
 // 🧩 Query selector
 const select = (selector, all = false) => {
-  if (!all) {
-    return document.querySelector(selector)
-  } else {
-    return document.querySelectorAll(selector)
+  if (typeof selector !== 'string') {
+    throw new Error('The selector argument must be a string.')
   }
+  if (all !== false && all !== true && all !== 'all') {
+    throw new Error('The all argument must be a boolean.')
+  }
+  const elements = all
+    ? Array.from(document.querySelectorAll(selector))
+    : document.querySelector(selector)
+  return elements
 }
 
 // Event Listener
@@ -117,4 +131,21 @@ const throttle = (func, limit) => {
   }
 }
 
-export { delay, capitalize, log, select, event, classlist, debounce, throttle }
+//Random Number Generator
+const random = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
+//Exports
+export {
+  delay,
+  capitalize,
+  log,
+  select,
+  event,
+  classlist,
+  debounce,
+  throttle,
+  random,
+  sanitizeInput,
+}
