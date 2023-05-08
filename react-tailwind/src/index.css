@@ -1,0 +1,29 @@
+/* Tailwind Directives : */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.1rem;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(2, 40, 40);
+  background-image: radial-gradient(rgb(8, 46, 46), rgb(2, 27, 27));
+}
+
+a {
+  @apply underline font-semibold text-emerald-400;
+}
