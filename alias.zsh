@@ -1,3 +1,129 @@
+
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# ZSH_THEME="robbyrussell"
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment one of the following lines to change the auto-update behavior
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+
+# Uncomment the following line to change how often to auto-update (in days).
+# zstyle ':omz:update' frequency 13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+DISABLE_MAGIC_FUNCTIONS="true"
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=( zsh-autosuggestions npm  fast-syntax-highlighting vscode command-not-found )
+
+# zsh-autocomplete
+# z
+# zsh-navigation-tools
+# colored-man-pages 
+# F-Sy-H
+# sudo
+# git
+
+
+
+export PATH="$PATH:$GIT_SHELL"
+
+source $ZSH/oh-my-zsh.sh
+
+
+# if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
+#   eval "$(oh-my-posh init zsh --config 'https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/amro.omp.json')"
+# fi
+
+eval "$(oh-my-posh init zsh --config '~/.poshthemes/amro.omp.json')"
+
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+#My Aliasses
+unsetopt beep
+
 #Vanilla: Create a template Vanilla JS in project folder [name] and open a VSCode in that folder.
 
 alias Vanilla='function _newproject() {
@@ -16,20 +142,18 @@ alias Vanilla='function _newproject() {
     mkdir -p "$target_dir"
     rsync -av --exclude=node_modules ~/linux-coding-environment/Templates/vanilla-js-base/ "$target_dir/" > /dev/null 2>&1
     cd "$target_dir"
-    code .
-    npm install vite@latest --save-dev
-    npm fund > /dev/null 2>&1 &&
-    reset &&
-    figlet VanillaJS | lolcat &&
+    p install vite@latest --save-dev
+    pnpm fund > /dev/null 2>&1 &&
+    reset
+    figlet Vanilla JS | lolcat &&
     printf "Created %s at %s on %s\n" "$2" "${target_dir#"$HOME/linux-coding-environment"}" "$(date)" | lolcat
     printf "\033[0;37m"
     printf "To run the project:\n"
-    printf "- npm run dev\n"
+    printf "- pnpm run dev\n"
     printf "- click on the local address or hit [o]\n"
     printf "\033[0m"
+    lvim
 }; _newproject'
-
-
 
 #Tailwind: Create a template Vanilla JS with implemented Tailwind CSS in project folder [name] and open a VSCode in that folder.
 alias Tailwind='function _newproject() {
@@ -48,21 +172,51 @@ alias Tailwind='function _newproject() {
     mkdir -p "$target_dir"
     rsync -av --exclude=node_modules ~/linux-coding-environment/Templates/vanilla-js-tailwindcss/ "$target_dir/" > /dev/null 2>&1
     cd "$target_dir"
-    code .
-    npm install vite@latest --save-dev
-    npm install tailwindcss@latest postcss@latest autoprefixer@latest --save-dev > /dev/null 2>&1 &&
-    npm fund > /dev/null 2>&1 &&
-    reset &&
-    figlet VanillaJS + TailwindCSS | lolcat
+    pnpm install vite@latest --save-dev
+    pnpm install tailwindcss@latest postcss@latest autoprefixer@latest --save-dev > /dev/null 2>&1 &&
+    pnpm fund > /dev/null 2>&1 &&
+    reset
+    figlet TailwindCSS+ | lolcat
     printf "Created %s at %s on %s\n" "$2" "${target_dir#"$HOME/linux-coding-environment"}" "$(date)" | lolcat
     printf "\033[0;37m"
     printf "To run the project:\n"
-    printf "- npm run dev\n"
+    printf "- pnpm run dev\n"
     printf "- click on the local address or hit [o]\n"
     printf "\033[0m"
+    lvim 
 }; _newproject'
 
 
+#Tailwind: Create a template Vanilla JS with implemented Tailwind CSS in project folder [name] and open a VSCode in that folder.
+alias React='function _newproject() {
+    if [ -z "$1" ]; then
+        printf "Error: Please provide a project name.\n"
+        return 1
+    fi
+
+    local project_dir="$HOME/linux-coding-environment/Projects"
+    local target_dir="${project_dir}/${1}"
+
+    if [ -n "$2" ]; then
+        target_dir="${target_dir}/${2}"
+    fi
+
+    mkdir -p "$target_dir"
+    rsync -av --exclude=node_modules ~/linux-coding-environment/Templates/react-tailwind/ "$target_dir/" > /dev/null 2>&1
+    cd "$target_dir"
+    pnpm install vite@latest --save-dev
+    pnpm install tailwindcss@latest postcss@latest autoprefixer@latest --save-dev > /dev/null 2>&1 &&
+    pnpm fund > /dev/null 2>&1 &&
+    reset
+    figlet React+ | lolcat
+    printf "Created %s at %s on %s\n" "$2" "${target_dir#"$HOME/linux-coding-environment"}" "$(date)" | lolcat
+    printf "\033[0;37m"
+    printf "To run the project:\n"
+    printf "- pnpm run dev\n"
+    printf "- click on the local address or hit [o]\n"
+    printf "\033[0m"
+    lvim
+}; _newproject'
 
 
 #Alpine: Create s template AlpineJS project with implemented Tailwind CSS in project folder.
@@ -82,19 +236,49 @@ alias Alpine='function _newproject() {
     mkdir -p "$target_dir"
     rsync -av --exclude=node_modules ~/linux-coding-environment/Templates/alpinejs-tailwind-vite/ "$target_dir/" > /dev/null 2>&1
     cd "$target_dir"
-    code .
-    npm install vite@latest --save-dev
-    npm install alpinejs@latest --save-dev > /dev/null 2>&1 &&
-    npm install tailwindcss@latest postcss@latest autoprefixer@latest --save-dev > /dev/null 2>&1 &&
-    npm fund > /dev/null 2>&1 &&
+    pnpm install vite@latest --save-dev
+    pnpm install alpinejs@latest --save-dev > /dev/null 2>&1 &&
+    pnpm install tailwindcss@latest postcss@latest autoprefixer@latest --save-dev > /dev/null 2>&1 &&
+    pnpm fund > /dev/null 2>&1 &&
     reset
-    figlet AlpineJS + TailwindCSS | lolcat
+    figlet Alpine JS+ | lolcat
     printf "Created %s at %s on %s\n" "$2" "${target_dir#"$HOME/linux-coding-environment"}" "$(date)" | lolcat
     printf "To run the project:\n"
-    printf "- npm run dev\n"
+    printf "- ppnpm run dev\n"
     printf "- click on the local address or hit [o]\n"
     printf "\033[0m" &&
-
+    lvim
 }; _newproject'
+
+
+
+#Folders
+alias Projects="cd ~/linux-coding-environment/Projects/ && tree -L 1 | lolcat"
+alias Templates="cd ~/linux-coding-environment/Templates && tree -L 1 | lolcat"
+
+#Root Files
+alias zshconf="code . ~/.zshrc"
+
+# Commands
+alias t='function _newcommand() { 
+    clear;
+    printf "\033[0;32m"
+    pwd
+    printf "\033[0m"
+    tree -L ${1:-1};
+}; _newcommand'
+
+alias vim="lvim; clear"
+# pnpm
+# export PNPM_HOME="/home/kimagin/.local/share/pnpm"
+# case ":$PATH:" in
+#   *":$PNPM_HOME:"*) ;;
+#   *) export PATH="$PNPM_HOME:$PATH" ;;
+# esac
+# pnpm end
+
+
+export PATH="$HOME/.local/bin":$PATH
+export PATH="$PATH:/home/kimagin/.npm-global/bin"
 
 
