@@ -1,4 +1,4 @@
-"use strict";
+'use strict'
 //ToolBox
 import {
   delay, // Asynchronus delay function : delay(time)
@@ -9,22 +9,21 @@ import {
   debounce, // Debounce ( runs the function only after the specified delay ) : debounce(function,delay)
   throttle, // Throttle ( runs the function n times per specified amount time ) : throttle(function,interval)
   random, // Random number generator : random(min,max)
-} from "./utils";
+} from './utils'
 
 // Setup before DOM loads
 const initApp = async () => {
   //Dom Elements
-  const mainElement = select("section");
-  await delay(500);
-  classlist(mainElement, "-", "opacity-0");
+  const mainElement = select('section')
+  await delay(500)
+  classlist(mainElement, '-', 'opacity-0')
   //Event Listeners
-
-  event(mainElement, "transitionend", () =>
-    log("⚡ VanillaJS Custom Template is ready...")
-  );
-};
+  event(mainElement, 'transitionend', () =>
+    log('⚡ VanillaJS Custom Template is ready...')
+  )
+}
 
 // document.addEventListener("DOMContentLoaded", initApp);
-event(document, "DOMContentLoaded", initApp);
+event(document, 'DOMContentLoaded', initApp)
 
 // 🚩 JS Code comes here
