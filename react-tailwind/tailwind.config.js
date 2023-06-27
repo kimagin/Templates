@@ -1,26 +1,26 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
-  theme: {
-    //Define Media queries
-    /*screens: {
+    content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+    theme: {
+        //Define Media queries
+        /*screens: {
         sm: '480px',
         md: '768px',
         lg: '976px',
         xl: '1440px',
       },*/
 
-    //Define Custom Fonts
-    /*fontFamily: {
+        //Define Custom Fonts
+        /*fontFamily: {
         sans: ["Jost", "sans-serif"],
         //or alternatively
         jost: ['Jost','sans-serig'],
         ...
         //and then you can apply it by 'font-just'
       },*/
-    extend: {
-      //Extend Tailwind Color Pallet
-      /*colors: {
+        extend: {
+            //Extend Tailwind Color Pallet
+            /*colors: {
         //Generated with Uicolors.app
         "curious-blue": {
           50: "#eff9fc",
@@ -35,26 +35,26 @@ export default {
           900: "#224257",
         },
       },*/
-      //Create Custom Animations
-      animation: {
-        'spin-slow': 'spin 3s linear infinite',
-        //You can call the keyframes
-        bounce: 'bounce 3s ease-in-out infinite',
-      },
+            //Create Custom Animations
+            animation: {
+                'spin-slow': 'spin 3s linear infinite',
+                //You can call the keyframes
+                bounce: 'bounce 3s ease-in-out infinite',
+            },
 
-      //Create custom Key-frames
-      keyframes: {
-        bounce: {
-          //You can use css .style in js
-          '0%, 100%': {
-            transform: 'scale(1.1)',
-          },
-          '50%': {
-            transform: 'scale(.9)',
-          },
+            //Create custom Key-frames
+            keyframes: {
+                bounce: {
+                    //You can use css .style in js
+                    '0%, 100%': {
+                        transform: 'scale(1.1)',
+                    },
+                    '50%': {
+                        transform: 'scale(.9)',
+                    },
+                },
+            },
         },
-      },
     },
-  },
-  plugins: [],
+    plugins: [],
 }
