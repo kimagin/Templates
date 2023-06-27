@@ -22,7 +22,6 @@ const initApp = async () => {
     log('⚡ TailwindCSS Template is ready...')
   )
 }
-
 document.addEventListener('DOMContentLoaded', initApp)
 
 // 🚩 Client-side JS Code comes here
