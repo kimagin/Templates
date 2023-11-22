@@ -21,7 +21,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import fragment from './shader/fragment.glsl'
 import vertex from './shader/vertex.glsl'
 
-// import GUI from 'lil-gui'
+import GUI from 'lil-gui'
 
 export default class Sketch {
   constructor(options) {
@@ -31,9 +31,9 @@ export default class Sketch {
     this.width = this.container.offsetWidth
     this.height = this.container.offsetHeight
     this.renderer = new WebGLRenderer()
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)) //Prevent Aliasing
     this.renderer.setSize(this.width, this.height)
-    this.renderer.setClearColor(0xeeeeee, 1)
+    this.renderer.setClearColor(0xeeeeee, 1) // Background color
     this.physicallyCorrectLights = true
     this.renderer.outputColorSpace = SRGBColorSpace
     this.time = 0
@@ -42,10 +42,22 @@ export default class Sketch {
     this.container.appendChild(this.renderer.domElement)
 
     // 🚩 Camera Properies
-    this.camera = new PerspectiveCamera(70, this.width / this.height, 0.1, 100)
+    this.FOV = 70
+    this.cameraPosition = { x: 0, y: 0, z: 2 }
+
+    this.camera = new PerspectiveCamera(
+      this.FOV,
+      this.width / this.height,
+      0.1,
+      100
+    )
 
     // 🚩 Camera Position
-    this.camera.position.set(0, 0, 2)
+    this.camera.position.set(
+      this.cameraPosition.x,
+      this.cameraPosition.y,
+      this.cameraPosition.z
+    )
 
     // 🚩 Orbit Controls
     this.controls = new OrbitControls(this.camera, this.renderer.domElement)
@@ -63,7 +75,6 @@ export default class Sketch {
     this.controls = new OrbitControls(this.camera, this.renderer.domElement)
     this.isPlaying = true
     // this.settings()
-    // this.setupFBO()
     this.addObjects()
     // this.addLights()
     this.resize()
@@ -77,8 +88,8 @@ export default class Sketch {
     this.settings = {
       progress: 0,
     }
-    // this.gui = new GUI()
-    // this.gui.add(this.settings, 'progress', 0, 1, 0.01).onChange((val) => {})
+    this.gui = new GUI()
+    this.gui.add(this.settings, 'progress', 0, 1, 0.01).onChange((val) => {})
   }
 
   // 🚩 Resizing
