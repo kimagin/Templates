@@ -21,5 +21,3 @@ const initApp = async () => {
   })
 }
 document.addEventListener('DOMContentLoaded', initApp)
-
-// 🚩 Client-side JS Code comes here
