@@ -16,12 +16,11 @@ import {
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 // import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 // import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader'
+import { GUI } from 'dat.gui'
 
 // Importing shaders
 import fragment from './shader/fragment.glsl'
 import vertex from './shader/vertex.glsl'
-
-import GUI from 'lil-gui'
 
 export default class Sketch {
   constructor(options) {
@@ -74,7 +73,7 @@ export default class Sketch {
     // 🚩 Modules
     this.controls = new OrbitControls(this.camera, this.renderer.domElement)
     this.isPlaying = true
-    // this.settings()
+    this.settings()
     this.addObjects()
     // this.addLights()
     this.resize()
@@ -84,12 +83,9 @@ export default class Sketch {
 
   // 🚩 Settings for GUI controls
   settings() {
-    let that = this
-    this.settings = {
-      progress: 0,
-    }
     this.gui = new GUI()
-    this.gui.add(this.settings, 'progress', 0, 1, 0.01).onChange((val) => {})
+    this.gui.add(this.camera.position, 'x').min(-1).max(1)
+    this.gui.add(this.camera.position, 'y').min(-1).max(1)
   }
 
   // 🚩 Resizing
