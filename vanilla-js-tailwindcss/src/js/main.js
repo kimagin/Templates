@@ -20,7 +20,8 @@ const initApp = async () => {
   //Event Listeners
   event(mainElement, 'transitionend', () =>
     log('⚡ TailwindCSS Template is ready...')
-  )
+  ),
+    { once: true }
 }
 document.addEventListener('DOMContentLoaded', initApp)
 
