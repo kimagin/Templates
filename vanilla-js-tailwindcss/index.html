@@ -2,36 +2,41 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="src/assets/js.png" />
+    <link rel="icon" type="image/svg+xml" href="src/assets/ts.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
-    <link rel="preconnect" href="https://rsms.me/" />
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@700,301,300,401,400&display=swap"
+      rel="stylesheet" />
     <link rel="stylesheet" href="src/style/style.css" />
   </head>
-  <body class="bg-zinc-900 overscroll-none">
-    <main class="h-[100svh] flex justify-center items-center">
+  <body
+    class="bg-zinc-950 h-screen bg-gradient-to-bl from-violet-950/40 to-zinc-950 overscroll-none">
+    <main class="h-full mx-auto flex justify-center items-center max-w-2xl">
       <section
-        class="text-center opacity-0 transition-opacity duration-1000 ease-out"
-      >
+        class="text-center opacity-0 transition-opacity duration-1000 ease-out">
         <div class="flex justify-center items-center space-x-6 mb-8">
-          <img class="rounded-sm" src="src/assets/js.png" width="38" alt="" />
+          <img
+            class="rounded-sm"
+            src="src/assets/ts.svg"
+            width="38"
+            alt="typescript logo" />
           <img
             class="animate-bounce"
             src="src/assets/tailwind.png"
             width="50"
-            alt=""
-          />
-          <img src="src/assets/vite.svg" width="38" alt="" />
+            alt="tailwindcss logo" />
+          <img src="src/assets/vite.svg" width="38" alt="vite logo" />
         </div>
-        <h1 class="mt-5 tracking-wide">
-          Pure <b>Vanilla JS</b> + <b>TailwindCSS</b> StarterTemplate
+        <h1 class="mt-5 tracking-wide text-slate-100 text-5xl mb-1">
+          <b class="font-bold text-violet-500">TypeScript</b> +
+          <b class="text-violet-500">TailwindCSS</b> Starter Template
         </h1>
         <small class="mt-2 text-slate-300 font-thin tracking-widest">
           <i>Made with ❤️ by</i> <b>Kimagination</b>
         </small>
       </section>
     </main>
-    <script type="module" src="src/js/main.js"></script>
+    <script type="module" src="src/ts/main.ts"></script>
   </body>
 </html>

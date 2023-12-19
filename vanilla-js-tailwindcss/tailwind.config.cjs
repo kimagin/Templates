@@ -11,13 +11,13 @@ export default {
       },*/
 
     //Define Custom Fonts
-    /*fontFamily: {
-         //sans: ["Jost", "sans-serif"],
-         //or alternatively
-         //jost: ['Jost','sans-serig'],
-         //...
-         //and then you can apply it by 'font-just'
-      },*/
+    fontFamily: {
+      sans: ['Satoshi', 'sans-serif'],
+      //or alternatively
+      //jost: ['Jost','sans-serig'],
+      //...
+      //and then you can apply it by 'font-just'
+    },
     extend: {
       //Extend Tailwind Color Pallet
       /*colors: {

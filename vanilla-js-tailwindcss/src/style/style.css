@@ -5,25 +5,16 @@
 
 /* CSS Styles */
 :root {
-    font-family: 'Inter', sans-serif;
-    letter-spacing: 0.1rem;
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-text-size-adjust: 100%;
+  letter-spacing: 0.1rem;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-h1 {
-    @apply text-slate-100 text-5xl;
-}
-
-b {
-    @apply text-violet-500;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
