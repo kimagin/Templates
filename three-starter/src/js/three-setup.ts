@@ -19,10 +19,28 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { GUI } from 'dat.gui'
 
 // Importing shaders
+
 import fragment from './shader/fragment.glsl'
 import vertex from './shader/vertex.glsl'
 
 export default class Sketch {
+  //Types
+  private scene: Scene
+  private container: HTMLElement
+  private width: number
+  private height: number
+  private renderer: WebGLRenderer
+  private physicallyCorrectLights: boolean
+  private time: number
+  private isPlaying: boolean
+  private FOV: number
+  private cameraPosition: { x: number; y: number; z: number }
+  private camera: PerspectiveCamera
+  private controls: OrbitControls
+  private gui: GUI
+  private material: ShaderMaterial
+  private geometry: PlaneGeometry
+  private plane: Mesh
   constructor(options) {
     // 🚩 Setup
     this.scene = new Scene()

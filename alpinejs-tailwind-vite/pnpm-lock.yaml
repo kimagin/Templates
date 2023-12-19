@@ -5,8 +5,11 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@types/alpinejs':
+    specifier: ^3.13.5
+    version: 3.13.5
   alpinejs:
-    specifier: ^3.12.0
+    specifier: ^3.12.2
     version: 3.12.2
 
 devDependencies:
@@ -17,16 +20,16 @@ devDependencies:
     specifier: ^8.43.0
     version: 8.43.0
   postcss:
-    specifier: ^8.4.21
+    specifier: ^8.4.24
     version: 8.4.24
   prettier:
     specifier: ^2.8.8
     version: 2.8.8
   tailwindcss:
-    specifier: ^3.2.7
+    specifier: ^3.3.2
     version: 3.3.2
   vite:
-    specifier: ^5.0.0
+    specifier: ^5.0.2
     version: 5.0.2
 
 packages:
@@ -442,6 +445,10 @@ packages:
     dev: true
     optional: true
 
+  /@types/alpinejs@3.13.5:
+    resolution: {integrity: sha512-BSNTroRhmBkNiyd7ELK/5Boja92hnQMST6H4z1BqXKeMVzHjp9o1j5poqd5Tyhjd8oMFwxYC4I00eghfg2xrTA==}
+    dev: false
+
   /@vue/reactivity@3.1.5:
     resolution: {integrity: sha512-1tdfLmNjWG6t/CsPldh+foumYFo3cpyCHgBYQ34ylaMsJ+SNHQ1kApMIa8jN+i593zQuaw3AdWH0nJTARzCFhg==}
     dependencies:
@@ -521,7 +528,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.21.9
-      caniuse-lite: 1.0.30001508
+      caniuse-lite: 1.0.30001570
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -557,7 +564,7 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001508
+      caniuse-lite: 1.0.30001570
       electron-to-chromium: 1.4.441
       node-releases: 2.0.12
       update-browserslist-db: 1.0.11(browserslist@4.21.9)
@@ -573,8 +580,8 @@ packages:
     engines: {node: '>= 6'}
     dev: true
 
-  /caniuse-lite@1.0.30001508:
-    resolution: {integrity: sha512-sdQZOJdmt3GJs1UMNpCCCyeuS2IEGLXnHyAo9yIO5JJDjbjoVRij4M1qep6P6gFpptD1PqIYgzM+gwJbOi92mw==}
+  /caniuse-lite@1.0.30001570:
+    resolution: {integrity: sha512-+3e0ASu4sw1SWaoCtvPeyXp+5PsjigkSt8OXZbF9StH5pQWbxEjLAZE3n8Aup5udop1uRiKA7a4utUk/uoSpUw==}
     dev: true
 
   /chalk@4.1.2:

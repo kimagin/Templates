@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "types": ["vite-plugin-glsl/ext"],
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": false
+  },
+  "include": ["src", "typings"]
+}
