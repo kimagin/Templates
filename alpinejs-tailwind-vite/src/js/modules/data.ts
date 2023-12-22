@@ -5,7 +5,7 @@ export default function Data() {
     init() {},
     appInfo: {
       icon: '🌄',
-      title: `<h1><b>AlpineJS</b> + <b>TailwindCSS</b> <br> StarterTemplate</h1>`,
+      title: `<h1 class="text-4xl text-center"><b>AlpineJS</b> + <b>TailwindCSS</b> <br> StarterTemplate</h1>`,
     },
   }
 }

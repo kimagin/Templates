@@ -4,42 +4,48 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="src/assets/js.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-    <link rel="preconnect" href="https://rsms.me/" />
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <title>AlpineJS App</title>
+
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@700,301,300,401,400&display=swap"
+      rel="stylesheet" />
     <link rel="stylesheet" href="src/style/style.css" />
   </head>
-  <body class="overscroll-none">
+  <body
+    class="overscroll-none bg-sky-50 flex flex-col justify-center items-center h-screen"
+  >
     <!-- Main app -->
-    <div
-      class="main flex flex-col justify-center items-center opacity-0"
+    <main
+      class="main flex flex-col justify-center items-center opacity-0 transition-opacity duration-700 ease-in"
       x-data="data"
     >
-      <div class="logo">
-        <img class="rounded-sm" src="src/assets/js.png" width="38" alt="" />
+      <div class="logo flex justify-center items-center space-x-6 mb-8">
+        <img class="rounded-sm" src="src/assets/ts.svg" width="38" alt="TS Logo" />
         <img
           class="animate-bounce"
           src="src/assets/alpine.png"
           width="58"
-          alt=""
+          alt="AlpineJS Logo"
         />
-        <img src="src/assets/tailwind.png" width="50" alt="" />
-        <img src="src/assets/vite.svg" width="38" alt="" />
+        <img src="src/assets/tailwind.png" width="50" alt="TailwindCSS Logo" />
+        <img src="src/assets/vite.svg" width="38" alt="ViteJS Logo" />
       </div>
-      <span class="title mb-8" x-html="appInfo.title"></span>
+      <span class="title text-sky-900 mb-8" x-html="appInfo.title"></span>
 
-      <!-- component -->
+      <!-- AlpineJS component -->
       <div x-data="counter">
         <div class="h-10 mb-8">
           <button
             @click.prevent="increase()"
-            :class="'counter'"
+            :class="'text-slate-100 bg-gradient-to-r from-indigo-400 to-pink-400 px-2 py-1 rounded-md text-sm font-mono border-b-4 border-violet-700 active:border-0 active:translate-y-1 block'"
             x-text="`
           ${name} / ${counter}`"
           ></button>
         </div>
       </div>
-      <small><i>Prepared with ❤️ by</i> <b>Kimagination</b></small>
+      <small class="text-[0.7rem] text-slate-700"
+        ><i>Prepared with ❤️ by</i> <b>Kimagination</b></small
+      >
     </div>
 
     <script type="module" src="src/js/main.ts"></script>
