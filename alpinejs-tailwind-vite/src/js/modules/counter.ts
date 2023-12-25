@@ -2,10 +2,14 @@
 
 export function Counter() {
   return {
-    name: "Counter",
-    counter: 0,
+    init() {},
+    name: 'Counter',
+    counter: this.$persist(0),
     increase() {
-      this.counter++;
+      this.counter++
     },
-  };
+    reset() {
+      this.counter = 0
+    },
+  }
 }

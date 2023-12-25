@@ -15,8 +15,14 @@ declare global {
   var Alpine: AlpineType
 }
 window.Alpine = Alpine
+
 Alpine.data('data', Data)
 Alpine.data('counter', Counter)
+
+//Alpine Plugins
+
+import persist from '@alpinejs/persist'
+Alpine.plugin(persist)
 Alpine.start()
 
 const initApp = async () => {

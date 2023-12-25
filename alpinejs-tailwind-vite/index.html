@@ -2,25 +2,30 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="src/assets/js.png" />
+    <link rel="icon" type="image/svg+xml" href="src/assets/ts.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AlpineJS App</title>
-
     <link
       href="https://api.fontshare.com/v2/css?f[]=satoshi@700,301,300,401,400&display=swap"
-      rel="stylesheet" />
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="src/style/style.css" />
   </head>
   <body
     class="overscroll-none bg-sky-50 flex flex-col justify-center items-center h-screen"
+    x-data="data"
   >
     <!-- Main app -->
     <main
       class="main flex flex-col justify-center items-center opacity-0 transition-opacity duration-700 ease-in"
-      x-data="data"
     >
       <div class="logo flex justify-center items-center space-x-6 mb-8">
-        <img class="rounded-sm" src="src/assets/ts.svg" width="38" alt="TS Logo" />
+        <img
+          class="rounded-sm"
+          src="src/assets/ts.svg"
+          width="38"
+          alt="TS Logo"
+        />
         <img
           class="animate-bounce"
           src="src/assets/alpine.png"
@@ -34,20 +39,54 @@
 
       <!-- AlpineJS component -->
       <div x-data="counter">
-        <div class="h-10 mb-8">
+        <div class="h-8 mb-8 flex">
           <button
-            @click.prevent="increase()"
-            :class="'text-slate-100 bg-gradient-to-r from-indigo-400 to-pink-400 px-2 py-1 rounded-md text-sm font-mono border-b-4 border-violet-700 active:border-0 active:translate-y-1 block'"
+            @click.prevent="increase(); $dispatch('flash', `the button is clicked ${counter} ${counter > 1 ? 'times' : 'time'}` )"
+            :class="'text-slate-100 bg-gradient-to-r from-indigo-400 to-pink-400 px-2 py-1 w-32 rounded-md text-sm font-mono border-b-4 border-violet-700 active:border-0 active:translate-y-1 block'"
             x-text="`
           ${name} / ${counter}`"
           ></button>
+          <div>
+            <button
+              @click.prevent="reset(); $dispatch('flash', `the counter is reseted!` )"
+              :disabled="counter === 0"
+              x-show="counter !== 0"
+              :class="['px-2 py-1 rounded-md text-sm font-mono flex-1 absolute transition-all underline']"
+              x-text="'reset'"
+              x-transition
+            ></button>
+          </div>
         </div>
       </div>
       <small class="text-[0.7rem] text-slate-700"
         ><i>Prepared with ❤️ by</i> <b>Kimagination</b></small
       >
-    </div>
-
+    </main>
+    <template
+      x-data="{show:false,
+        message:'',
+        init(){
+        },
+        timer: false,
+        async handleFlash(event){
+          this.message=event.detail
+          if (this.timer){
+            clearTimeout(this.timer)
+          }
+          this.timer = setTimeout(async()=>{this.show = false; await this.$nextTick()},3000)
+        }
+      }"
+      x-teleport="body"
+    >
+      <div
+        x-show="show"
+        x-transition
+        @flash.window="show=true;handleFlash($event)"
+        class="flash absolute left-5 bottom-5 bg-gradient-to-r from-indigo-400 to-indigo-300 text-slate-50 px-4 py-2 rounded-md"
+      >
+        <h2 x-text="message">This is a flash message</h2>
+      </div>
+    </template>
     <script type="module" src="src/js/main.ts"></script>
   </body>
 </html>
